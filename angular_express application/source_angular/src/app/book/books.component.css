@@ -1,0 +1,26 @@
+.padding {
+    left: 81%;
+    position: relative;
+}
+
+.textboxclass {
+ width:400px;
+ height: 30px;
+ 
+}
+
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+header
+{
+	background-image:  url(book.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+	
+

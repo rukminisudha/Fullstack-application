@@ -1,0 +1,96 @@
+<header>
+<div class="container">
+  <h1>Add book</h1>
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+  
+      <div class="form-group">
+        <label for="name">Title</label>
+        <input type="text" class="form-control " [(ngModel)]="title" name="title" minlength="3" required #titleRef="ngModel">
+      </div>
+  
+      <div *ngIf="titleRef.invalid && (titleRef.dirty && titleRef.touched)" class="alert alert-danger">
+       <div *ngIf="titleRef.errors.required">
+        book title must be entered
+       </div>
+       <div *ngIf="titleRef.errors.minlength">
+        title must contain minimum of three characters.
+       </div>
+      </div>
+	  
+    <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" [(ngModel)]="author" name="author" required minlength="3" #authorRef="ngModel" >
+      </div>
+  
+      <div *ngIf="authorRef.invalid && (authorRef.dirty && authorRef.touched)" class="alert alert-danger">
+          <div *ngIf="authorRef.errors.required">
+            author name must be entered
+          </div>
+          <div *ngIf="authorRef.errors.minlength">
+            author name must contain minimum of three characters.
+          </div>
+          </div>
+		  
+    <div class="form-group">
+          <label for="isbn">ISBN</label>
+          <input type="number" class="form-control" [(ngModel)]="isbn" name="isbn" min="10" max="99" required #isbnRef="ngModel">
+        </div>
+        <div *ngIf="isbnRef.invalid && (isbnRef.dirty && isbnRef.touched)" class="alert alert-danger">
+            <div *ngIf="isbnRef.errors.required">
+              isbn must be entered
+            </div>
+            <div *ngIf="isbnRef.errors.min">
+              isbn number should be of 13 digits
+            </div>
+            </div>
+			
+	
+	
+	
+	<div class="form-group">
+          <label for="publicationDate">Publication Date</label>
+          <input type="Date" class="form-control" [(ngModel)]="publicationDate" name="publicationDate"required >
+        </div>
+		
+		 <div class="form-group">
+          <label for="publisher">Publisher</label>
+          <input type="text" class="form-control" [(ngModel)]="publisher" name="publisher" minlength="3"  required #publisherRef="ngModel" >
+        </div>
+        <div *ngIf="publisherRef.invalid && (publisherRef.dirty && publisherRef.touched)" class="alert alert-danger">
+            <div *ngIf="publisherRef.errors.required">
+              publisher name must be entered
+            </div>
+            <div *ngIf="publisherRef.errors.minlength">
+              publisher name must contain minimum of three characters.
+            </div>
+            </div>
+			
+			<div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" class="form-control" [(ngModel)]="price" name="price"  required >
+        </div>
+  
+      <div class="form-group">
+        <label for="genres">Genre</label>
+        <select name="genre" class="form-control" [ngModel]="genres[0]">
+          <option *ngFor="let genre of genres" [value]="genre">
+            {{genre}}
+          </option>
+        </select>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="formats">Genre</label>
+        <select name="format" class="form-control" [ngModel]="formats[0]">
+          <option *ngFor="let format of formats" [value]="format">
+            {{format}}
+          </option>
+        </select>
+      </div>
+	 <!--<button type="submit" class="btn btn-primary" [disabled]="addBookForm.invalid" >Submit</button>-->
+   <button type="submit" class="btn btn-primary"  >Submit</button>
+      <br>
+      
+  </form>
+</div>
+</header>

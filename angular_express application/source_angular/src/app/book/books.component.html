@@ -1,0 +1,94 @@
+
+  <html>
+<head>
+<title>Book Store Application</title>
+
+</head>
+<body>
+   <header>
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        
+    </div>
+	
+	<br>
+	<br>
+    <div class='panel-body '>
+        <div class='row'>
+           
+            <div class='col-md-2' style="text-align:center;">
+                <input type='text'  class="form-control && textboxclass" placeholder="Search by book title"
+                    [(ngModel)]='nameFilter' />
+			     
+            </div>
+        </div>
+		<br>
+		<br>
+		
+		<h2 align="center">AVAILABLE BOOKS</h2>
+		<br>
+		<style>
+          table {
+             width:100%;
+                }
+          table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+          th, td {
+            padding: 5px;
+            text-align: left;
+               }
+          table#t01 tr:nth-child(even) {
+             background-color: #eee;
+               }
+          table#t01 tr:nth-child(odd) {
+             background-color:#fff;
+              }
+          table#t01 th {
+            background-color: pink;
+             color: white;
+               }
+          </style>
+        <table id="t01" class='table table-striped table-condensed' *ngIf='books && books.length'>
+            <thead>
+                <tr>
+				    <th style="width:20px;"> </th>
+                    <th style="min-width: 80px;" > Title</th>
+                    <th style="min-width: 80px;">Author</th>
+                    <th style="min-width: 60px;">Publisher</th>
+                    <th style="min-width: 60px;">Publication Date</th>
+                    <th style="min-width: 60px;">ISBN</th>
+                    <th style="min-width: 60px;">Price</th>
+                    <th style="min-width: 60px;">Genre</th>
+                    <th style="min-width: 60px;">Format</th>
+                    <th style="width:20px;"> </th>
+                    <th style="width:20px;"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let book of books | bookFilter: nameFilter'>
+				
+				    <td><input type="checkbox"  />    &nbsp;   </td>
+                   <td><a  [routerLink]="book.id">{{ book.title | uppercase }}</a></td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>{{ book.publicationDate | date}}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.genre }}</td>
+                    <td>{{ book.format }}</td>
+                    <td><button type="button"><a [routerLink]="['/editBook',book.id]" class="btn btn-xs btn-primary">UPDATE</a></button></td>
+                    <td><button type="button"><a (click)="deleteBook(book.id)" class="btn btn-xs btn-danger">DELETE</a></button></td>
+                
+				</tr>
+            </tbody>
+        </table>
+              
+    </div>
+</div>
+
+</header>
+</body>
+</html>

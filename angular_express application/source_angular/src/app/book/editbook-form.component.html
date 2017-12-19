@@ -1,0 +1,93 @@
+<div class="container">
+  <h1>Update Book</h1>
+  
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+      <div class="form-group">
+        <label for="title">Book Title</label>
+        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book.title" required minlength="3" #titleRef="ngModel">
+        <div *ngIf="titleRef.invalid && (titleRef.dirty || titleRef.touched)" class="alert alert-danger">
+          <div *ngIf="titleRef.errors.required">
+              book title must be entered.
+          </div>
+          <div *ngIf="titleRef.errors.minlength">
+              title must contain minimum of three characters.
+          </div>
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" name="author" [(ngModel)]="book.author" required minlength="3" #authorRef="ngModel">
+        <div *ngIf="authorRef.invalid && (authorRef.dirty || authorRef.touched)" class="alert alert-danger">
+          <div *ngIf="authorRef.errors.required">
+              author name must be entered
+          </div>
+          <div *ngIf="authorRef.errors.minlength">
+              author name must contain minimum of three characters.
+          </div>
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <input type="text" class="form-control" id="publisher" name="publisher" [(ngModel)]="book.publisher" required minlength="3" #publisherRef="ngModel">
+        <div *ngIf="publisherRef.invalid && (publisherRef.dirty || publisherRef.touched)" class="alert alert-danger">
+          <div *ngIf="publisherRef.errors.required">
+              publisher name must be entered
+          </div>
+          <div *ngIf="publisherRef.errors.minlength">
+              publisher name must contain minimum of three characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+      <label for="isbn">ISBN</label>
+        <input type="number" class="form-control" id="isbn" name="isbn" [(ngModel)]="book.isbn" required  #isbnRef="ngModel">
+        <div *ngIf="isbnRef.invalid && (isbnRef.dirty || isbnRef.touched)" class="alert alert-danger">
+          <div *ngIf="isbnRef.errors.required">
+            ISBN is required.
+          </div>
+        </div>
+        </div>
+       <div class="form-group">
+        <label for="publicationDate">Publication Date</label>
+        <input type="date" class="form-control" id="publicationDate" name="publicationDate" [(ngModel)]="book.publicationDate" required minlength="3" #publicationDateRef="ngModel">
+        <div *ngIf="publicationDateRef.invalid && (publicationDateRef.dirty || publicationDateRef.touched)" class="alert alert-danger">
+          <div *ngIf="publicationDateRef.errors.required">
+            Date is required.
+          </div>
+          <div *ngIf="publicationDateRef.errors.minlength">
+            
+          </div>
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="price">Book Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="book.price" required  #priceRef="ngModel">
+        <div *ngIf="priceRef.invalid && (priceRef.dirty || priceRef.touched)" class="alert alert-danger">
+          <div *ngIf="priceRef.errors.required">
+            Price is required.
+          </div>
+          
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select class="form-control" name="genre" [ngModel]="book.genre">
+          <option *ngFor="let genre of genres" [value]="genre">
+            {{genre}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="format">Format</label>
+        <select class="form-control" name="format" [ngModel]="book.format">
+          <option *ngFor="let format of formats" [value]="format">
+            {{format}}
+          </option>
+        </select>
+      </div>
+   
+      <button type="submit" class="btn btn-info" [disabled]="formRef.invalid">Submit</button>
+      <br>
+      
+    </form>
+</div>

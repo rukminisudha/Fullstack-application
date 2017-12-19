@@ -1,0 +1,43 @@
+a{
+    text-decoration: none;
+}
+
+a.active{
+    color: blue;
+    font-weight: bold;
+}
+
+.main-nav {
+	float:centre;
+	list-style: none;
+	margin-top: 30px;
+}	
+	
+.main-nav li
+{
+	display: inline-block;
+}
+
+
+.main-nav li a
+{
+	color: blue;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: "Roboto" , sans-serif;
+	font-size: 15px;
+}
+
+.main-nav li.active a
+{
+	border: 1px solid blue;
+}
+
+.main-nav li a:hover
+{
+	border: 1px solid blue;
+	
+}
+
+
+	

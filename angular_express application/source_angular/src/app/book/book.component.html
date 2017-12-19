@@ -1,0 +1,45 @@
+<div>
+    <br>
+    <h3 class="center">Book Details</h3>
+    <br>
+    <table  class="table table-striped modified">
+      <tr>
+        <td>ID:</td>
+        <td>{{book.id}}</td>
+      </tr>
+      <tr>
+        <td>Title:</td>
+        <td>{{book.title}}</td>
+      </tr>
+      <tr>
+        <td>Author:</td>
+        <td>{{book.author}}</td>
+      </tr>
+      <tr>
+        <td>Publisher:</td>
+        <td>{{book.publisher}}</td>
+      </tr>
+      <tr>
+        <td>Publication Date:</td>
+        <td>{{ book.publicationDate | date }}</td>
+      </tr>
+      <tr>
+        <td>Price:</td>
+        <td>{{ book.price }}</td>
+      </tr>
+      <tr>
+        <td>ISBN:</td>
+        <td>{{book.isbn}}</td>
+      </tr>
+      <tr>
+        <td>Genre:</td>
+        <td>{{book.genre}}</td>
+        <tr>
+        <td>Format:</td>
+        <td>{{book.format}}</td>
+      </tr>
+    </table>
+    <div class="center">
+    <button (click)="goBack()" class="btn btn-outline-primary">Back</button>
+    </div>
+</div>
